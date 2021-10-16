@@ -5,7 +5,7 @@ const mostrar_datos = async () => {
     const $data = document.getElementById('cuerpoTabla');
 
     const resp = await listar_clientes();
-    console.log("Mostrar datos", resp)
+    // console.log("Mostrar datos", resp)
     $data.innerHTML += `<tr>`;
     resp.map((row, index) => $data.innerHTML += `<th scope="row">#${index + 1}</th>
                     <td>${row.name}</td>
@@ -17,9 +17,15 @@ const mostrar_datos = async () => {
 };
 
 function sendUserData() {
-    alert("cambio de ventana");
-    let dato = document.getElementsById("name").value;
+    // alert("cambio de ventana");
 
+    const body = {
+        name: document.getElementById('name').value,
+        email: document.getElementById('email').value,
+        phone: document.getElementById('phone').value,
+        contactPerson: document.getElementById('contactPerson').value,
+        comments: document.getElementById('comments').value,
+    }
 
     // axios.post('https://sr-api-gestioncomercial.herokuapp.com/apiv1/customers/new', {
     //     "name": "Nombre de cliente 8",
@@ -41,17 +47,15 @@ function sendUserData() {
         headers: {
             'Content-Type': 'application/json'
         },
-        data: {
-          "name": "Nombre de cliente 8",
-          "email":"mail.cliente8@mail.com",
-          "comments": "Cliente 8 en la nube"
-        }
-      })
-      .then( res => {
-          console.log(res)
-      })
-      .catch( err => {
-          console.log(err)
-      })
+        data: body
+    })
+        .then(res => {
+            const resp = res.data.data
+            // Aqui haz lo que necesites.... YA está el cliente creado!!
+            alert(resp.name + "ha sido creado!!")
+        })
+        .catch(err => {
+            console.log(err)
+        })
 
 }

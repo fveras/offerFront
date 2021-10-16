@@ -7,7 +7,7 @@ async function listar_clientes() {
         method: 'get',
         url: 'https://sr-api-gestioncomercial.herokuapp.com/apiv1/customers/all'
     })
-        console.log(respuesta.data.data);
+        // console.log(respuesta.data.data);
         return respuesta.data.data;
 
    
