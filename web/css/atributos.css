@@ -1,0 +1,67 @@
+form label{
+    width: 50%;
+    margin-top:10px;
+    font-weight:bold;
+    display:inline-block;
+    color: black;
+}
+
+textarea{
+    width:50%;
+    padding:8px 16px;
+    margin-top:10px;
+    border:1px solid #000;
+    border-radius:5px;
+    color:#fff;
+    background-color:#7FC5D5;
+}
+form input{
+    width:50%;
+    padding:8px 16px;
+    margin-top:10px;
+    border:1px solid #000;
+    border-radius:5px;
+    color:#fff;
+    background-color:#7FC5D5;
+} 
+input Date{
+    width:50%;
+    padding:8px 16px;
+    margin-top:10px;
+    border:1px solid #000;
+    border-radius:5px;
+    color:#fff;
+    background-color:#7FC5D5;
+} 
+section{
+    position: absolute;
+    top: 100px;
+    left: 1050px;
+    width:25%;
+    height:100px;
+}
+select{
+
+    width:50%;
+    padding:8px 16px;
+    margin-top:10px;
+    border:1px solid #000;
+    border-radius:5px;
+    color:#fff;
+    background-color:#7FC5D5;
+}
+divTotal{
+    height:100%;
+    width: 100%;
+    background-color: green;
+}
+legend {
+    background-color: gray;
+    color: white;
+    padding: 5px 10px;
+
+}
+div#diagnosis{
+    position:relative;
+    top:1px;
+}
