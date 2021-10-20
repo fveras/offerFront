@@ -10,13 +10,14 @@
         <!--        <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
                 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
                 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>-->
-        <link rel="stylesheet" type="text/css" href="css/Basics.css" />
+        <!-- <link rel="stylesheet" type="text/css" href="css/Basics.css" /> -->
         <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     </head>
     <body>
         <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
         <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
         <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
         <script src="js/clientes-servicio.js"></script>
         <script src="js/lista-clientes-controlador.js"></script>
         <link rel="stylesheet" type="text/css" href="css/Basics.css" />
@@ -76,13 +77,13 @@
 
             <div class="formulario">
 
-                <form class="container mt-5"  method="post">
-                    <div class="form-group"> <!-- Street 1 -->
+                <form class="container mt-5" >
+                    <div class="form-group"> <!-- Name -->
                         <label for="name" class="control-label">Nombre Cliente</label>
                         <input type="text" class="form-control" id="name" name="name" placeholder="Type name.">
                     </div>                    
 
-                    <div class="form-group"> <!-- Street 2 -->
+                    <div class="form-group"> <!-- Email -->
                         <label for="email" class="control-label">Email</label>
                         <input type="text" class="form-control" id="email" name="email" placeholder="Type email.">
                     </div>    
@@ -101,7 +102,7 @@
                     </div>   
 
                     <div class="form-group"> <!-- Submit Button -->
-                        <button type="submit" onclick="sendUserData()" class="btn btn-verde">Aceptar</button>
+                        <button type="button" onclick="sendUserData()" class="btn btn-verde">Aceptar</button>
                         <button type="reset" class="btn btn-verde">Limpiar</button>
                     </div>     
 
