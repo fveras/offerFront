@@ -1,23 +1,27 @@
 /* global listar_clientes */
 
 //'use strict';
+
 const mostrar_datos = async () => {
     const $data = document.getElementById('cuerpoTabla');
 
     const resp = await listar_clientes();
-    // console.log("Mostrar datos", resp)
-    $data.innerHTML += `<tr>`;
-    resp.map((row, index) => $data.innerHTML += `<th scope="row">#${index + 1}</th>
-                    <td>${row.name}</td>
-                    <td>${row.email}</td>
-                    <td>${row.phone}</td> 
-                    <td>${row.createdAt.toLocaleString("es-ES")}</td>`)
-
-    $data.innerHTML += ` </tr>`;
+    let strToPrint = ''
+    resp.forEach((row, index) => {
+        const { _id, name, email, phone, createdAt} = row
+       
+        strToPrint += `<tr><th scope="row">#${index + 1}</th>`
+        strToPrint += `<td>${name}</td>
+            <td>${email}</td>
+            <td>${phone}</td> 
+            <td>${createdAt.toLocaleString("es-ES")}</td>`
+        strToPrint += `<td><button onclick="deleteCustomer(${email})">Eliminar</button></td></tr>`
+    });
+    $data.innerHTML = strToPrint;
 };
 
+
 function sendUserData() {
-    // alert("cambio de ventana");
 
     const body = {
         name: document.getElementById('name').value,
@@ -26,21 +30,6 @@ function sendUserData() {
         contactPerson: document.getElementById('contactPerson').value,
         comments: document.getElementById('comments').value,
     }
-
-    // axios.post('https://sr-api-gestioncomercial.herokuapp.com/apiv1/customers/new', {
-    //     "name": "Nombre de cliente 8",
-    //     "email": "mail.cliente8@mail.com",
-    //     "comments": "Cliente 8 en la nube"
-
-    // })
-    //     .then(res => {
-    //         if (res.status == 201) {
-    //             console.log('El nuevo Post ha sido almacenado con id: ', res.data.id);
-    //         }
-    //     })
-    //     .catch(err => {
-    //         console.log(err);
-    //     })
     axios({
         url: "https://sr-api-gestioncomercial.herokuapp.com/apiv1/customers/new",
         method: "POST",
@@ -52,10 +41,26 @@ function sendUserData() {
         .then(res => {
             const resp = res.data.data
             // Aqui haz lo que necesites.... YA está el cliente creado!!
-            alert(resp.name + "ha sido creado!!")
+            alert(resp.name + "ha sido creado!!");
+            document.getElementById("altaClientes").reset();
         })
         .catch(err => {
             console.log(err)
         })
+
+}
+function deleteCustomer(id) {
+    //elemento = document.getElementById(event);
+    alert(id)
+    axios.delete('https://sr-api-gestioncomercial.herokuapp.com/customers/615c3021981e03d20c5f5cbc', {})
+        .then(res => {
+            alert("ha sido Eliminado!!");
+
+        })
+        .catch(err => {
+            alert(2);
+            console.log(err)
+        })
+
 
 }

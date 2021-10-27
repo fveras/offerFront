@@ -218,3 +218,17 @@ right: 20px;
   bottom:0;
   left:0;  
 }
+tbody {
+  display:block;
+  max-height:500px;
+  overflow-y:auto;
+}
+thead, tbody tr {
+  display:table;
+  width:83.5%;
+  table-layout:fixed;
+}
+thead {
+  width: calc( 100% - 1em )
+} 
+
