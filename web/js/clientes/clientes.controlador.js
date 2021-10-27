@@ -2,7 +2,7 @@
 
 //'use strict';
 
-const mostrar_datos = async () => {
+const mostrarTablaClientes = async () => {
     const $tablaDeDatos = document.getElementById('tablaDeDatos');
 
     // Recogemos los datos de los clientes
@@ -20,7 +20,8 @@ const mostrar_datos = async () => {
             <td scope="row">${phone}</td> 
             <td scope="row" class="text-center">${fecha}</td>
             <td scope="row">
-                <button onclick="deleteCustomer(event)" data-id="${_id}">Eliminar</button>
+                <button onclick="" data-id="${_id}" class="btn btn-primary"><i class="bi bi-eye"></i></i></button>
+                <button onclick="deleteCustomer(event)" data-id="${_id}" class="btn btn-secondary"><i class="bi bi-trash"></i></button>
             </td>
         </tr>`
     }
@@ -85,7 +86,7 @@ async function deleteCustomer(event) {
     } catch (error) {
         alert("Error borrando registro")
     } finally {
-        mostrar_datos()
+        mostrarTablaClientes()
     }
 
 }
@@ -93,4 +94,4 @@ async function deleteCustomer(event) {
 
 
 // Ejecutamos la función principal para ver los datos
-mostrar_datos()
+mostrarTablaClientes()
