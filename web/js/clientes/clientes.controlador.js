@@ -2,19 +2,16 @@
 
 //'use strict';
 
-const URL_BASE = "https://sr-api-gestioncomercial.herokuapp.com/apiv1/customers"
-
-
 const mostrar_datos = async () => {
     const $tablaDeDatos = document.getElementById('tablaDeDatos');
 
     // Recogemos los datos de los clientes
-    const resp = await listar_clientes();
-    
+    const resp = await Clientes.getAll();
+
     // Preparamos la tabla con todos los datos
     let strDatos = `<tbody>`
-    for (let index = 0; index <resp.length; index++) {
-        const { _id, name, email, phone, createdAt} = resp[index]
+    for (let index = 0; index < resp.length; index++) {
+        const { _id, name, email, phone, createdAt } = resp[index]
         const fecha = new Date(createdAt).toLocaleDateString("es-ES", { dateStyle: 'long' })
         strDatos += `<tr>
             <th scope="row">#${index + 1}</th>
@@ -60,7 +57,7 @@ function sendUserData() {
         comments: document.getElementById('comments').value,
     }
     axios({
-        url: "/new",
+        url: CLIENTES.url_base + '/new',
         method: "POST",
         headers: {
             'Content-Type': 'application/json'
@@ -76,23 +73,21 @@ function sendUserData() {
         .catch(err => {
             console.log(err)
         })
-
 }
-function deleteCustomer(event) {
-    const {id } = event.target.dataset
 
-    axios({
-        method: 'delete',
-        url: `${URL_BASE}/${id}`,
-        responseType: 'json'
-       })
-        .then(res => {
-            alert("Registro eliminado!!")
-            mostrar_datos()
-        })
-        .catch(err => {
-            console.log(err)
-        })
+
+// Función llamada desde el btn Borrar
+async function deleteCustomer(event) {
+    const { id } = event.target.dataset
+    try {
+        const resp = await Clientes.delete(id);
+        alert("Registro borrado!")
+    } catch (error) {
+        alert("Error borrando registro")
+    } finally {
+        mostrar_datos()
+    }
+
 }
 
 
