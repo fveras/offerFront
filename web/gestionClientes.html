@@ -1,96 +1,138 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
+	<head>
+		<!-- Required meta tags -->
+		<meta charset="utf-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1, shrink-to-fit=no"
+		/>
 
-<head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<!-- Bootstrap CSS -->
+		<link
+			rel="stylesheet"
+			href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+			integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l"
+			crossorigin="anonymous"
+		/>
+		<link rel="stylesheet" type="text/css" href="css/Basics.css" />
+		<!-- Bootstrap ICONS -->
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.6.1/font/bootstrap-icons.css">
+		<link
+			href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css"
+			rel="stylesheet"
+		/>
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
-        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="css/Basics.css" />
-    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script src="js/clientes-servicio.js"></script>
-    <script src="js/lista-clientes-controlador.js"></script>
-    <script src="js/funciones.js"></script>
+	</head>
 
-</head>
+	<body>
+		<!-- Navigation -->
+		<div class="fixed-top">
+			<header class="topbar">
+				<div class="container">
+					<div class="row">
+						<!-- social icon-->
+						<div class="col-sm-12">
+							<ul class="social-network">
+								<li
+									><a class="waves-effect waves-dark" href="#"
+										><i class="fa fa-facebook"></i></a
+								></li>
+								<li
+									><a class="waves-effect waves-dark" href="#"
+										><i class="fa fa-twitter"></i></a
+								></li>
+								<li
+									><a class="waves-effect waves-dark" href="#"
+										><i class="fa fa-linkedin"></i></a
+								></li>
+								<li
+									><a class="waves-effect waves-dark" href="#"
+										><i class="fa fa-pinterest"></i></a
+								></li>
+								<li
+									><a class="waves-effect waves-dark" href="#"
+										><i class="fa fa-google-plus"></i></a
+								></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</header>
+			<nav
+				class="
+					navbar navbar-expand-lg navbar-dark
+					mx-background-top-linear
+				"
+			>
+				<div class="container">
+					<a
+						class="navbar-brand"
+						rel="nofollow"
+						target="_blank"
+						href="http://scadonsak.com/7bF"
+						style="text-transform: uppercase"
+					>
+						Gestión Clientes</a
+					>
+					<button
+						class="navbar-toggler"
+						type="button"
+						data-toggle="collapse"
+						data-target="#navbarResponsive"
+						aria-controls="navbarResponsive"
+						aria-expanded="false"
+						aria-label="Toggle navigation"
+					>
+						<span class="navbar-toggler-icon"></span>
+					</button>
+					<div class="collapse navbar-collapse" id="navbarResponsive">
+						<ul class="navbar-nav ml-auto">
+							<li class="nav-item active">
+								<a class="nav-link" href="index.html"
+									>Home
+									<span class="sr-only">(current)</span>
+								</a>
+							</li>
 
-<body>
-    <!-- Navigation -->
-    <div class="fixed-top">
-        <header class="topbar">
-            <div class="container">
-                <div class="row">
-                    <!-- social icon-->
-                    <div class="col-sm-12">
-                        <ul class="social-network">
-                            <li><a class="waves-effect waves-dark" href="#"><i class="fa fa-facebook"></i></a></li>
-                            <li><a class="waves-effect waves-dark" href="#"><i class="fa fa-twitter"></i></a></li>
-                            <li><a class="waves-effect waves-dark" href="#"><i class="fa fa-linkedin"></i></a></li>
-                            <li><a class="waves-effect waves-dark" href="#"><i class="fa fa-pinterest"></i></a></li>
-                            <li><a class="waves-effect waves-dark" href="#"><i class="fa fa-google-plus"></i></a></li>
-                        </ul>
-                    </div>
+							<li class="nav-item">
+								<a class="nav-link" href="gestionOferta.html"
+									>Gestión Ofertas</a
+								>
+							</li>
 
-                </div>
-            </div>
-        </header>
-        <nav class="navbar navbar-expand-lg navbar-dark mx-background-top-linear">
-            <div class="container">
-                <a class="navbar-brand" rel="nofollow" target="_blank" href="http://scadonsak.com/7bF"
-                    style="text-transform: uppercase;"> Gestión Clientes</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
-                    aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarResponsive">
+							<li class="nav-item">
+								<a
+									class="nav-link"
+									href="gestionProveedores.html"
+									>Gestión Proveedores</a
+								>
+							</li>
 
-                    <ul class="navbar-nav ml-auto">
+							<li class="nav-item">
+								<a class="nav-link" href="#"
+									>Gestión Artículos</a
+								>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</nav>
+			<div id="tablaDeDatos" class="table-responsive"></div>
+			<div class="w-100 p-3" style="background-color: #e5faa6">
+				<a
+					href="gestionClientesAlta.html"
+					class="btn btn-outline-success btn-xs me-md-2"
+					>Nuevo Cliente</a
+				>
+			</div>
+		</div>
 
-                        <li class="nav-item active">
-                            <a class="nav-link" href="index.html">Home
-                                <span class="sr-only">(current)</span>
-                            </a>
-                        </li>
 
-                        <li class="nav-item">
-                            <a class="nav-link" href="gestionOferta.html">Gestión Ofertas</a>
-                        </li>
 
-                        <li class="nav-item">
-                            <a class="nav-link" href="gestionProveedores.html">Gestión Proveedores</a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Gestión Artículos</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-        <table class="table table-striped table-bordered" style="margin-bottom: 0">
-            <thead class="thead-dark">
-                <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Nombre Cliente</th>
-                    <th scope="col">Email</th>
-                    <th scope="col">Telefono</th>
-                    <th scope="col">Fecha Alta</th>
-                    <th scope="col">Acciones</th>
-                </tr>
-            </thead>
-            <tbody id="cuerpoTabla">
-                <script>mostrar_datos()</script>
-            </tbody>
-        </table>
-        <tr></tr>
-        <div class="w-100 p-3" style="background-color: #E5FAA6;">
-            <a href="gestionClientesAlta.html" class="btn btn-outline-success btn-xs me-md-2">Nuevo Cliente</a>
-        </div>
-    </div>
-</body>
-
+		<!-- Scripts -->
+		<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+		<script src="./js/clientes/clientes.servicios.js"></script>
+		<script src="./js/clientes/clientes.controlador.js"></script>
+	</body>
 </html>
