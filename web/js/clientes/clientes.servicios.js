@@ -8,7 +8,7 @@ const Clientes = {
 
     // Recogemos todos los clientes de la BD
     getAll: () => {
-        const resp = new Promise(async (resolve, reject) => {
+        return new Promise(async (resolve, reject) => {
             try {
                 const resp = await axios({
                     method: 'get',
@@ -21,12 +21,11 @@ const Clientes = {
                 reject(error);
             }
         })
-        return resp
     },
 
     // Borramos el cliente indicado por id
     delete: (id) => {
-        const resp = new Promise(async (resolve, reject) => {
+        return new Promise(async (resolve, reject) => {
             try {
                 const resp = await axios({
                     method: 'delete',
@@ -38,6 +37,5 @@ const Clientes = {
                 reject(error);
             }
         })
-        return resp
     },
 }

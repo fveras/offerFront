@@ -9,41 +9,42 @@ const mostrarTablaClientes = async () => {
     const resp = await Clientes.getAll();
 
     // Preparamos la tabla con todos los datos
-    let strDatos = `<tbody>`
+    let strDatos = ``
     for (let index = 0; index < resp.length; index++) {
         const { _id, name, email, phone, createdAt } = resp[index]
-        const fecha = new Date(createdAt).toLocaleDateString("es-ES", { dateStyle: 'long' })
+        const fecha = new Date(createdAt).toLocaleDateString("es-ES", { dateStyle: 'short' })
         strDatos += `<tr>
-            <th scope="row">#${index + 1}</th>
-            <td scope="row">${name}</td>
-            <td scope="row">${email}</td>
-            <td scope="row">${phone}</td> 
-            <td scope="row" class="text-center">${fecha}</td>
-            <td scope="row">
-                <button onclick="" data-id="${_id}" class="btn btn-primary"><i class="bi bi-eye"></i></i></button>
-                <button onclick="deleteCustomer(event)" data-id="${_id}" class="btn btn-secondary"><i class="bi bi-trash"></i></button>
+            <td class="actionsCol">
+                <button onclick="showRegister(event)" data-id="${_id}" class="btn btn-primary"><i class="bi bi-eye"></i></button>
+                <button onclick="deleteRegister(event)" data-id="${_id}" class="btn btn-secondary"><i class="bi bi-trash"></i></button>
             </td>
+            <th class="idCol">${index + 1}</th>
+            <td scope="col" >${name}</td>
+            <td scope="col" >${email}</td>
+            <td scope="col" >${phone}</td> 
+            <td scope="col" class="text-center">${fecha}</td>
         </tr>`
     }
-    strDatos += '</tbody>'
 
     $tablaDeDatos.innerHTML = `
     <table class="table table-bordered table-hover table-sm">
         <!-- Cabecera de la tabla -->
         <thead class="thead-dark">
             <tr>
-                <th scope="col">#</th>
+                <th scope="col" class="actionsCol">Acciones</th>
+                <th scope="col" class="idCol">#</th>
                 <th scope="col">Nombre Cliente</th>
                 <th scope="col">Email</th>
                 <th scope="col">Telefono</th>
                 <th scope="col">Fecha Alta</th>
-                <th scope="col">Acciones</th>
             </tr>
         </thead>
 
         <!-- Cuerpo de los datos -->
-        ${strDatos}
-</table>`
+        <tbody>
+            ${strDatos}
+        </tbody>
+    </table>`
 
 };
 
@@ -78,13 +79,15 @@ function sendUserData() {
 
 
 // Función llamada desde el btn Borrar
-async function deleteCustomer(event) {
-    const { id } = event.target.dataset
+async function deleteRegister(evt) {
+
     try {
-        const resp = await Clientes.delete(id);
+        // Leemos el id del dataset (data-id) ** el [a || b] es para leer TODA la pulsación del botón
+        const id = evt.target.dataset.id || evt.target.parentElement.dataset.id
+        await Clientes.delete(id);
         alert("Registro borrado!")
     } catch (error) {
-        alert("Error borrando registro")
+        alert("Error borrando registro", error)
     } finally {
         mostrarTablaClientes()
     }
@@ -92,6 +95,10 @@ async function deleteCustomer(event) {
 }
 
 
+function showRegister(e) {
+    const id = e.target.dataset.id || e.target.parentElement.dataset.id
+    alert('Ver registro ID: ' + id)
+}
 
 // Ejecutamos la función principal para ver los datos
 mostrarTablaClientes()
